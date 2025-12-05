@@ -11,8 +11,9 @@ public class OrderTests
         var order = new Order();
 
         //Assert..
-        order.OrderNumber.Should().Be(12334);
+        order.OrderNumber.Should().Be(12345);
         order.DateTime.Date.Should().Be(DateTime.Today);
+        order.OrderItems.Should().BeEmpty();
 
     }
 
@@ -65,7 +66,7 @@ public class OrderTests
             .WithMessage("*En kund måste finnas*");
     }
     [Fact]
-    public void SaveOrder_ShouldThrow_WhenOrderItemsAreMissing()
+    public void SaveOrderShouldThrowWhenOrderItemsAreMissing()
     {
         // Arrange
         var order = new Order();

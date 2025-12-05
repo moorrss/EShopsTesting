@@ -5,7 +5,7 @@ namespace domain.tests;
 public class OrderItemTests
 {
     [Fact]
-    public void ShouldCreateOrderItem_WhenValid()
+    public void ShouldCreateOrderItemWhenValid()
     {
         // Arrange
         var product = new Product("AA-123", "TestProduct", 100m);
@@ -23,7 +23,7 @@ public class OrderItemTests
     [Theory]
     [InlineData(0)]
     [InlineData(-1)]
-    public void ShouldThrowException_WhenQuantityIsLessThanOne(int invalidQuantity)
+    public void ShouldThrowExceptionWhenQuantityIsLessThanOne(int invalidQuantity)
     {
         // Arrange
         var product = new Product("AA-123", "TestProduct", 100m);

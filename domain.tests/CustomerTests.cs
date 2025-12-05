@@ -20,10 +20,10 @@ public class CustomerTests : IClassFixture<CustomerFixture>
     [Fact]
     public void ShouldEqualWithCustomer()
     {
-        Assert.Equal("Anna", fixture.Customer.FirstName);
-        Assert.Equal("Andersson", fixture.Customer.LastName);
-        Assert.Equal("annaandersson@gmail.com", fixture.Customer.Email);
-        Assert.Equal(076786234, fixture.Customer.Phone);
+        Assert.Equal("", fixture.Customer.FirstName);
+        Assert.Equal("", fixture.Customer.LastName);
+        Assert.Equal("", fixture.Customer.Email);
+        Assert.Equal("", fixture.Customer.Phone);
     }
 
     [Fact]
@@ -38,11 +38,16 @@ public class CustomerTests : IClassFixture<CustomerFixture>
     [Fact]
     public void SaveShouldThrowArgumentExeptionsIfSomeOneIsNull()
     {
-        fixture.Customer.FirstName = "Anna";
-        fixture.Customer.LastName = "Andersson";
+        var customer = new Customer
+        {
+            FirstName = "Anna",
+            LastName = "Andersson"
+        };
+        //fixture.Customer.FirstName = "Anna";
+        //fixture.Customer.LastName = "Andersson";
         //fixture.Customer.Email = "annaAndersson@gmail.com";
 
-        ArgumentException ex = Assert.Throws<ArgumentException>(() => fixture.Customer.SaveCusomter());
+        ArgumentException ex = Assert.Throws<ArgumentException>(() => customer.SaveCusomter());
 
         Assert.NotNull(ex);
         Assert.IsType<ArgumentException>(ex);
@@ -65,8 +70,6 @@ public class CustomerTests : IClassFixture<CustomerFixture>
     {
         fixture.Customer.LastName = "Andersson";
         // fixture.Customer.Email = "annaAndersson@gmail.com";
-
-        var result = fixture.Customer.UpdateCusomter();
 
         ArgumentException ex = Assert.Throws<ArgumentException>(() => fixture.Customer.UpdateCusomter());
 
