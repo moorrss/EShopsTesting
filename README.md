@@ -1,1 +1,1 @@
-Testing, skapare testers för eShop.
+Testing, skapar testers för eShop.
